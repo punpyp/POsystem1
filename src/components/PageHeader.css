@@ -1,11 +1,9 @@
 .header-container {
   text-align: left;
   font-weight: bold;
-  margin-top: 80px; /* To ensure the text is visible below the fixed header */
   font-family: Arial, sans-serif;
   color: #333;
   margin-top: 100px;
-
   padding-right: 150px;
 }
 
