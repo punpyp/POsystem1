@@ -1,0 +1,28 @@
+.tabbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Background color for the tab bar */
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for the tab bar */
+  padding-left: 30px;
+}
+
+.tabs {
+  width: 100%;
+}
+
+.tab {
+  font-weight: bold;
+  color: #1976d2; /* text color */
+}
+
+.tab:hover {
+  background-color: #f5f5f5; /* Background color on hover */
+}
+
+/* Optional: Styling for the tab indicator */
+.MuiTabs-indicator {
+  background-color: #1976d2; /* Color for the active tab indicator */
+}
