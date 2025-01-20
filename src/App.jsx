@@ -1,16 +1,19 @@
-import Header from "./components/Header"; // Import Header (default export)
-import PageHeader from "./components/PageHeader";
-import MyTable from "./components/DataTable";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/header/Header"; 
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import EmployeePage from "./pages/employeePage/EmployeePage";
+import SupplierPage from "./pages/supplierPage/SupplierPage";
 
 const App = () => {
   return (
-    <div>
+    <Router>
       <Header />
-      <PageHeader />
-      <MyTable />
-    </div>
+      <Routes>
+        {/* Employee Page */}
+        <Route path="/" element={<EmployeePage/>} />
+        <Route path="/master/supplier" element={<SupplierPage/>} />
+      </Routes>
+    </Router>
   );
 };
 

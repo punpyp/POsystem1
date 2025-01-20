@@ -1,0 +1,16 @@
+.header-container {
+    text-align: left;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-top: 100px;
+    padding-right: 150px;
+  }
+  
+  .header-container h1 {
+    font-size: 30px;
+    margin: 50px 50px;
+  }
+  
+  
+  
