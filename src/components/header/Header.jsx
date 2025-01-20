@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Tabs, Tab, Menu, MenuItem } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { useNavigate } from "react-router-dom"; 
 import "./Header.css";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-
   const [menuType, setMenuType] = useState(null);
+  const navigate = useNavigate(); 
 
   const handleClick = (event, type) => {
     setAnchorEl(event.currentTarget);
@@ -16,6 +17,11 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
     setMenuType(null);
+  };
+
+  const handleNavigation = (path) => {
+    navigate(path); 
+    handleClose(); 
   };
 
   return (
@@ -42,17 +48,27 @@ const Header = () => {
         open={Boolean(anchorEl) && menuType === "master"}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>EMPLOYEE</MenuItem>
-        <MenuItem onClick={handleClose}>SUPPLIER</MenuItem>
-        <MenuItem onClick={handleClose}>ITEMS</MenuItem>
+        <MenuItem onClick={() => handleNavigation("/")}>
+          EMPLOYEE
+        </MenuItem>
+        <MenuItem onClick={() => handleNavigation("/master/supplier")}>
+          SUPPLIER
+        </MenuItem>
+        <MenuItem onClick={() => handleNavigation("/master/items")}>
+          ITEMS
+        </MenuItem>
       </Menu>
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl) && menuType === "report"}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>REPORT</MenuItem>
-        <MenuItem onClick={handleClose}>DASHBOARD</MenuItem>
+        <MenuItem onClick={() => handleNavigation("/report/report")}>
+          REPORT
+        </MenuItem>
+        <MenuItem onClick={() => handleNavigation("/report/dashboard")}>
+          DASHBOARD
+        </MenuItem>
       </Menu>
     </div>
   );

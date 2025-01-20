@@ -1,0 +1,10 @@
+.searchbar-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0; /* Adjust spacing as needed */
+    padding-left: 50px;
+  }
+  
+  .searchbar-container input {
+    width: 100%; /* Make the search bar responsive */
+  }
