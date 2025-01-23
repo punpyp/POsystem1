@@ -31,12 +31,6 @@ const SearchAndFilter = () => {
           <SearchIcon />
         </IconButton>
       </div>
-
-      {/* <ButtonGroup className="custom-button-group">
-        <Button>All</Button>
-        <Button>Active</Button>
-        <Button>Inactive</Button>
-      </ButtonGroup> */}
     </div>
   );
 };
