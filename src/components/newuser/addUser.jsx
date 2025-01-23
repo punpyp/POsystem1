@@ -145,7 +145,3 @@ const addUser = () => {
 };
 
 export default addUser;
-
-/*export default NewUser = () => {
-  return <button>Add User</button>;
-};*/

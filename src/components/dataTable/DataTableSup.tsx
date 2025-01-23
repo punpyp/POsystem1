@@ -10,68 +10,59 @@ import Paper from "@mui/material/Paper";
 function createData(
   code: string,
   name: string,
-  email: string,
-  position: string,
+
   status: string
 ) {
-  return { code, name, email, position, status };
+  return { code, name, status };
 }
 
 const rows = [
   {
     code: 1,
     name: "John Doe",
-    email: "john@example.com",
-    position: "jjjj",
+
     status: "✅",
   },
   {
     code: 2,
     name: "John Doe",
-    email: "john@example.com",
-    position: "jjjj",
+
     status: "✅",
   },
   {
     code: 3,
     name: "John Doe",
-    email: "john@example.com",
-    position: "jjjj",
+
     status: "❌",
   },
   {
     code: 4,
     name: "John Doe",
-    email: "john@example.com",
-    position: "jjjj",
+
     status: "❌",
   },
   {
     code: 5,
     name: "John Doe",
-    email: "john@example.com",
-    position: "jjjj",
+
     status: "✅",
   },
   {
     code: 6,
     name: "John Doe",
-    email: "john@example.com",
-    position: "jjjj",
+
     status: "❌",
   },
   {
     code: 7,
     name: "John Doe",
-    email: "john@example.com",
-    position: "jjjj",
+
     status: "✅",
   },
   {
     code: 8,
     name: "John Doe",
-    email: "john@example.com",
-    position: "jjjj",
+
     status: "✅",
   },
 ];
@@ -89,12 +80,7 @@ export default function BasicTable() {
             <TableCell align="right" style={{ fontWeight: "bold" }}>
               Name
             </TableCell>
-            <TableCell align="right" style={{ fontWeight: "bold" }}>
-              Email
-            </TableCell>
-            <TableCell align="right" style={{ fontWeight: "bold" }}>
-              Position
-            </TableCell>
+
             <TableCell align="right" style={{ fontWeight: "bold" }}>
               Is Active
             </TableCell>
@@ -110,8 +96,7 @@ export default function BasicTable() {
                 {row.code}
               </TableCell>
               <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.email}</TableCell>
-              <TableCell align="right">{row.position}</TableCell>
+
               <TableCell align="right">{row.status}</TableCell>
             </TableRow>
           ))}

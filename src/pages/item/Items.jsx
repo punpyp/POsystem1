@@ -1,15 +1,15 @@
-import "./employeePage.css";
+import "./Items.css";
 import SearchBar from "../../components/searchBar/SearchBar";
 import BasicTable from "../../components/dataTable/DataTable";
 import AddUser from "../../components/newuser/addUser";
-import IsActive from "../../pages/employeePage/IsActive";
+import IsActive from "../employeePage/IsActive";
 import Page from "../../components/dataTable/Page";
 
-const EmployeePage = () => {
+const Items = () => {
   return (
     <div className="header-container">
       <div className="wrapper">
-        <h1>Employee Management</h1>
+        <h1>Items Management</h1>
         <div>
           <AddUser />
         </div>
@@ -25,4 +25,4 @@ const EmployeePage = () => {
   );
 };
 
-export default EmployeePage;
+export default Items;

@@ -6,3 +6,19 @@
   box-shadow: none; /* Removes the shadow */
   background-color: transparent; /* Removes the background */
 }
+
+.pagination-info {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-footer button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination-footer button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
