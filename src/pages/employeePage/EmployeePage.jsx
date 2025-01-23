@@ -9,17 +9,16 @@ const EmployeePage = () => {
   return (
     <div className="header-container">
       <div className="wrapper">
-        <h1>Employee Management</h1>
-        <div>
+        <div className="topic">
+          <h1>Employee Management</h1>
           <AddUser />
         </div>
-        <div>
+        <div className="search-wrapper">
+          <SearchBar />
           <IsActive />
         </div>
       </div>
-      <SearchBar />
       <BasicTable />
-
       <Page />
     </div>
   );
