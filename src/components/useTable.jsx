@@ -30,7 +30,6 @@ export default function useTable(records, headCells) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(pages[0]);
 
-  // Table container component
   const TblContainer = (props) => (
     <Table className={classes.table}>{props}</Table>
   );

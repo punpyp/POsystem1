@@ -1,10 +1,29 @@
+.search-filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
 .searchbar-container {
-    display: flex;
-    align-items: center;
-    margin: 20px 0; /* Adjust spacing as needed */
-    padding-left: 50px;
-  }
-  
-  .searchbar-container input {
-    width: 100%; /* Make the search bar responsive */
-  }
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  padding-left: 0px;
+  padding-right: 470px;
+}
+
+/* .custom-button-group {
+  margin-top: 30px;
+} */
+
+/* .searchbar-container {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  padding-left: 50px;
+}
+
+.searchbar-container input {
+  width: 100%;
+} */

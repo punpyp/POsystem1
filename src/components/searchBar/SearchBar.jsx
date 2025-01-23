@@ -1,21 +1,23 @@
-
-import "./SearchBar.css";
+//import { Button, ButtonGroup } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 import { TextField, IconButton } from "@mui/material";
+//import "./IsActive.css";
+import "./SearchBar.css";
 
-const SearchBar = () => {
-    const [searchQuery, setSearchQuery] = useState("");
-  
-    const handleSearchChange = (event) => {
-      setSearchQuery(event.target.value);
-    };
-  
-    const handleSearch = () => {
-      return;
-    };
-  
-    return (
+const SearchAndFilter = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSearch = () => {
+    return;
+  };
+
+  return (
+    <div className="search-filter-container">
       <div className="searchbar-container">
         <TextField
           label="Search"
@@ -29,7 +31,14 @@ const SearchBar = () => {
           <SearchIcon />
         </IconButton>
       </div>
-    );
-  };
 
-  export default SearchBar;
+      {/* <ButtonGroup className="custom-button-group">
+        <Button>All</Button>
+        <Button>Active</Button>
+        <Button>Inactive</Button>
+      </ButtonGroup> */}
+    </div>
+  );
+};
+
+export default SearchAndFilter;
