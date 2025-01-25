@@ -1,4 +1,4 @@
-.header-container {
+header-container {
   text-align: left;
   font-weight: bold;
   font-family: Arial, sans-serif;
@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-.searchbar-wrapper {
+.search-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

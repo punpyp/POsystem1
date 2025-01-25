@@ -8,6 +8,7 @@ import SupplierPage from "./pages/supplierPage/SupplierPage";
 import RequestList from "./pages/requestList/RequestList";
 import Login from "./pages/login/Login";
 import Items from "./pages/item/Items";
+import NewSup from "./pages/newsuppage/NewSup";
 
 const App = () => {
   const noHeaderRoutes = ["/request", "/login"];
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/request" element={<RequestList />} />
         <Route path="/" element={<EmployeePage />} />
         <Route path="/master/supplier" element={<SupplierPage />} />
+        <Route path="/master/supplier/newsup" element={<NewSup />} />
         <Route path="/master/items" element={<Items />} />
       </Routes>
     </Router>

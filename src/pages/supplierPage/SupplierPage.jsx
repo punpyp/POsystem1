@@ -1,26 +1,25 @@
 import "./SupplierPage.css";
 import SearchBar from "../../components/searchBar/SearchBar";
-import DataTableSup from "../../components/dataTable/DataTableSup";
+import DataTable from "../../components/dataTable/DataTable";
 import IsActiveSup from "../../pages/supplierPage/IsActiveSup";
-//import IsActive from "../../pages/employeePage/IsActive";
 import Page from "../../components/dataTable/Page";
-// import AddSupButt from "../../components/newSupplier/AddSupButt";
+import AddSupplier from "../../components/newSupplier/AddSupButt";
 
 const SupplierPage = () => {
   return (
     <div className="header-container">
       <div className="wrapper">
-        <h1>Supplier Management</h1>
+        <div className="topic">
+          <h1>Supplier Management</h1>
+          <AddSupplier />
+        </div>
+        <div className="search-wrapper">
+          <SearchBar />
+          <IsActiveSup />
+        </div>
       </div>
-      <div className="searchbar-wrapper">
-        <SearchBar />
-        <IsActiveSup />
-      </div>
-
-      <div>
-        <DataTableSup />
-        <Page />
-      </div>
+      <DataTable />
+      <Page />
     </div>
   );
 };
