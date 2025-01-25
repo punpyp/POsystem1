@@ -6,16 +6,18 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import EmployeePage from "./pages/employeePage/EmployeePage";
 import SupplierPage from "./pages/supplierPage/SupplierPage";
 import RequestList from "./pages/requestList/RequestList";
-// import Login from "./pages/login/Login";
+import Login from "./pages/login/Login";
 import Items from "./pages/item/Items";
 
 const App = () => {
+  const noHeaderRoutes = ["/request", "/login"];
   return (
     <Router>
-      <Header />
+      {!noHeaderRoutes.includes(location.pathname) && <Header />}
+
       <Routes>
         {/* Default Route */}
-        {/* <Route path="/" element={<Login />} /> */}
+        <Route path="/login" element={<Login />} />
         <Route path="/request" element={<RequestList />} />
         <Route path="/" element={<EmployeePage />} />
         <Route path="/master/supplier" element={<SupplierPage />} />
