@@ -9,7 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 
-const addUser = () => {
+const AddUser = () => {
   const [open, setOpen] = useState(false);
   const [employeeCode, setEmployeeCode] = useState("");
   const [employeeName, setEmployeeName] = useState("");
@@ -144,4 +144,4 @@ const addUser = () => {
   );
 };
 
-export default addUser;
+export default AddUser;

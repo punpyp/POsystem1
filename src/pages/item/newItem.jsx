@@ -9,7 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 
-const addUser = () => {
+const NewItem = () => {
   const [open, setOpen] = useState(false);
   const [itemCode, setItemCode] = useState("");
   const [itemName, setItemName] = useState("");
@@ -29,21 +29,18 @@ const addUser = () => {
     setCategoryCode("");
     setPrice("");
     setUnit("");
-    setEmail("");
+
     setIsActive(false);
   };
 
-  
+  console.log("Item Code:", itemCode);
+  console.log("Item Name:", itemName);
+  console.log("Category Code:", categorycode);
+  console.log("Price:", price);
+  console.log("Unit:", unit);
+  console.log("Is Active:", isActive);
 
-    console.log("Item Code:", itemCode);
-    console.log("Item Name:", itemName);
-    console.log("Category Code:", categorycode);
-    console.log("Price:", price);
-    console.log("Unit:", unit);
-    console.log("Is Active:", isActive);
-
-    handleClose();
-  };
+  handleClose();
 
   return (
     <div className="new-item-button">
@@ -60,7 +57,6 @@ const addUser = () => {
             label="Item Code"
             type="text"
             fullWidth
-            value={itemCodeCode}
             onChange={(e) => setItemCode(e.target.value)}
           />
           <TextField
@@ -95,7 +91,6 @@ const addUser = () => {
             value={unit}
             onChange={(e) => setUnit(e.target.value)}
           />
-          
 
           <div style={{ marginTop: "10px" }}>
             {/* <label>
@@ -121,7 +116,7 @@ const addUser = () => {
           <Button onClick={handleClose} color="secondary">
             Cancel
           </Button>
-          <Button onClick={handleSubmit} color="primary">
+          <Button onClick={() => {}} color="primary">
             Save
           </Button>
         </DialogActions>
@@ -130,4 +125,4 @@ const addUser = () => {
   );
 };
 
-export default addUser;
+export default NewItem;

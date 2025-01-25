@@ -16,7 +16,6 @@ const App = () => {
       {!noHeaderRoutes.includes(location.pathname) && <Header />}
 
       <Routes>
-        {/* Default Route */}
         <Route path="/login" element={<Login />} />
         <Route path="/request" element={<RequestList />} />
         <Route path="/" element={<EmployeePage />} />
