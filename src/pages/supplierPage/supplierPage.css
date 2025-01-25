@@ -1,4 +1,37 @@
-.AddSupButt {
-  margin-top: 20px; /* Adjust vertical position */
-  margin-left: 10px; /* Adjust horizontal position */
+.header-container {
+  text-align: left;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin-top: 50px;
+  padding: 50px;
+}
+
+.header-container h1 {
+  font-size: 30px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.wrapper button {
+  background-color: #0056b3;
+  color: white;
+}
+
+.topic {
+  display: flex;
+  display: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchbar-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 50px;
 }

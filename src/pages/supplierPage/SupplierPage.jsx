@@ -1,8 +1,8 @@
 import "./SupplierPage.css";
 import SearchBar from "../../components/searchBar/SearchBar";
-import BasicTable from "../../components/dataTable/DataTableSup";
-
-import IsActive from "../../pages/employeePage/IsActive";
+import DataTableSup from "../../components/dataTable/DataTableSup";
+import IsActiveSup from "../../pages/supplierPage/IsActiveSup";
+//import IsActive from "../../pages/employeePage/IsActive";
 import Page from "../../components/dataTable/Page";
 // import AddSupButt from "../../components/newSupplier/AddSupButt";
 
@@ -12,13 +12,13 @@ const SupplierPage = () => {
       <div className="wrapper">
         <h1>Supplier Management</h1>
       </div>
-      <div>{/* <AddSupButt /> */}</div>
-      <div>
-        <IsActive />
-      </div>
-      <div>
+      <div className="searchbar-wrapper">
         <SearchBar />
-        <BasicTable />
+        <IsActiveSup />
+      </div>
+
+      <div>
+        <DataTableSup />
         <Page />
       </div>
     </div>

@@ -3,13 +3,35 @@
   font-weight: bold;
   font-family: Arial, sans-serif;
   color: #333;
-  margin-top: 100px;
-  padding-right: 50px;
+  margin-top: 50px;
+  padding: 50px;
 }
 
 .header-container h1 {
   font-size: 30px;
-  margin: 50px 50px;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
 
+.wrapper button {
+  background-color: #0056b3;
+  color: white;
+}
+
+.topic {
+  display: flex;
+  display: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchb-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 50px;
+}

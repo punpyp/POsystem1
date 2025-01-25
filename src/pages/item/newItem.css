@@ -1,8 +1,8 @@
-.new-user-button {
+.new-item-button {
   display: inline-block;
 }
 
-.addUser {
+.addItem {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-.addUser:hover {
+.addItem:hover {
   background-color: #0056b3;
 }
 
