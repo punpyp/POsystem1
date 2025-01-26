@@ -11,14 +11,11 @@ import {
 
 const AddUser = () => {
   const [open, setOpen] = useState(false);
-  const [employeeCode, setEmployeeCode] = useState("");
-  const [employeeName, setEmployeeName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  const [role, setRole] = useState("");
+  const [error, setError] = useState(null);
 
   const handleOpen = () => {
     setOpen(true);
@@ -26,30 +23,54 @@ const AddUser = () => {
 
   const handleClose = () => {
     setOpen(false);
-    setEmployeeCode("");
-    setEmployeeName("");
     setUsername("");
     setPassword("");
     setConfirmPassword("");
-    setEmail("");
-    setIsAdmin(false);
-    setIsActive(false);
+    setRole("");
+    setError(null);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
-    console.log("Employee Code:", employeeCode);
-    console.log("Employee Name:", employeeName);
-    console.log("Username:", username);
-    console.log("Email:", email);
-    console.log("Is Admin:", isAdmin);
-    console.log("Is Active:", isActive);
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("Unauthorized! Please log in.");
+        return;
+      }
 
-    handleClose();
+      const response = await fetch("http://localhost:3001/api/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, 
+        },
+        body: JSON.stringify({
+          username,
+          password,
+          role,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError(errorData.error || "Failed to add user");
+        return;
+      }
+
+      const data = await response.json();
+      alert("User added successfully!");
+      console.log("API Response:", data);
+
+      handleClose();
+    } catch (err) {
+      console.error("Error adding user:", err);
+      setError("An unexpected error occurred.");
+    }
   };
 
   return (
@@ -63,22 +84,6 @@ const AddUser = () => {
         <DialogContent>
           <TextField
             autoFocus
-            margin="dense"
-            label="Employee Code"
-            type="text"
-            fullWidth
-            value={employeeCode}
-            onChange={(e) => setEmployeeCode(e.target.value)}
-          />
-          <TextField
-            margin="dense"
-            label="Employee Name"
-            type="text"
-            fullWidth
-            value={employeeName}
-            onChange={(e) => setEmployeeName(e.target.value)}
-          />
-          <TextField
             margin="dense"
             label="Username"
             type="text"
@@ -104,32 +109,13 @@ const AddUser = () => {
           />
           <TextField
             margin="dense"
-            label="Email"
-            type="email"
+            label="Role"
+            type="text"
             fullWidth
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            placeholder="e.g., admin or employee"
           />
-
-          <div style={{ marginTop: "10px" }}>
-            <label>
-              <input
-                type="checkbox"
-                checked={isAdmin}
-                onChange={() => setIsAdmin(!isAdmin)}
-              />
-              Is Admin
-            </label>
-            <br />
-            <label>
-              <input
-                type="checkbox"
-                checked={isActive}
-                onChange={() => setIsActive(!isActive)}
-              />
-              Is Active
-            </label>
-          </div>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="secondary">
@@ -140,6 +126,7 @@ const AddUser = () => {
           </Button>
         </DialogActions>
       </Dialog>
+      {error && <p style={{ color: "red", marginTop: "10px" }}>{error}</p>}
     </div>
   );
 };

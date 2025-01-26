@@ -32,15 +32,50 @@ const AddItem = () => {
     setIsActive(false);
   };
 
-  const handleSubmit = () => {
-    console.log("Item Code:", itemCode);
-    console.log("Item Name:", itemName);
-    console.log("Category Code:", categoryCode);
-    console.log("Price:", price);
-    console.log("Unit:", unit);
-    console.log("Is Active:", isActive);
+  const handleSubmit = async () => {
+    if (!itemCode || !itemName || !categoryCode || !price || !unit) {
+      alert("All fields except 'Is Active' are required.");
+      return;
+    }
 
-    handleClose();
+    try {
+      const token = localStorage.getItem("token"); // Retrieve the token
+      if (!token) {
+        alert("Unauthorized! Please log in.");
+        return;
+      }
+
+      const response = await fetch("http://localhost:3001/api/items", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Include token in the request
+        },
+        body: JSON.stringify({
+          itemCode,
+          itemName,
+          categoryCode,
+          price,
+          unit,
+          isActive,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        alert(errorData.error || "Failed to add item");
+        return;
+      }
+
+      const data = await response.json();
+      alert("Item added successfully!");
+      console.log("API Response:", data);
+
+      handleClose();
+    } catch (err) {
+      console.error("Error adding item:", err);
+      alert("An unexpected error occurred.");
+    }
   };
 
   return (
