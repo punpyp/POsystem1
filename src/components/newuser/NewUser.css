@@ -38,13 +38,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Title inside the modal */
 h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Form group styling */
 .form-group {
   margin-bottom: 15px;
 }
@@ -63,7 +61,6 @@ h2 {
   border: 1px solid #ccc;
 }
 
-/* Checkbox styling */
 .checkbox-group {
   margin: 15px 0;
 }
@@ -73,7 +70,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Button group for Save and Cancel */
 .button-group {
   display: flex;
   justify-content: flex-end; /* Align buttons to the right */

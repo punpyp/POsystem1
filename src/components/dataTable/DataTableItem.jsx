@@ -6,7 +6,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-// Example data matching the table structure
 const rows = [
   { icode: 1, iname: "Item A", categoryCode: "CAT01", price: "$10" },
   { icode: 2, iname: "Item B", categoryCode: "CAT02", price: "$20" },

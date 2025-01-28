@@ -2,9 +2,9 @@
   width: 100%;
   padding: 10px 0;
   display: flex;
-  justify-content: flex-end; /* Aligns content to the right */
-  box-shadow: none; /* Removes the shadow */
-  background-color: transparent; /* Removes the background */
+  justify-content: flex-end;
+  box-shadow: none;
+  background-color: transparent;
 }
 
 .pagination-info {

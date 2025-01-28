@@ -9,9 +9,10 @@ import RequestList from "./pages/requestList/RequestList";
 import Login from "./pages/login/Login";
 import Items from "./pages/item/Items";
 import NewSup from "./pages/newsuppage/NewSup";
+import NewRequestList from "./pages/newrequest/NewRequestList";
 
 const App = () => {
-  const noHeaderRoutes = ["/request", "/login"];
+  const noHeaderRoutes = ["/request", "/login", "/newrequest"];
   return (
     <Router>
       {!noHeaderRoutes.includes(location.pathname) && <Header />}
@@ -19,6 +20,7 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/request" element={<RequestList />} />
+        <Route path="/request/newrequestlist" element={<NewRequestList />} />
         <Route path="/" element={<EmployeePage />} />
         <Route path="/master/supplier" element={<SupplierPage />} />
         <Route path="/master/supplier/newsup" element={<NewSup />} />

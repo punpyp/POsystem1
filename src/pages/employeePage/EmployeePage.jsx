@@ -16,19 +16,20 @@ import Paper from "@mui/material/Paper";
 
 const EmployeePage = () => {
   const navigate = useNavigate();
-  const [users, setUsers] = useState([]); 
-  const [error, setError] = useState(null); 
+  const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/login");
     } else {
-      fetch("http://localhost:3001/api/users", {
+      fetch(`${apiUrl}/api/users`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`,
         },
       })
         .then((response) => {
@@ -70,50 +71,49 @@ const EmployeePage = () => {
             borderRadius: "8px",
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
           }}
+        >
+          <Table sx={{ minWidth: 650 }} aria-label="employee table">
+            <TableHead>
+              <TableRow
+                sx={{
+                  backgroundColor: "#f5f5f5",
+                  "& th": {
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    color: "#333",
+                  },
+                }}
               >
-            <Table sx={{ minWidth: 650 }} aria-label="employee table">
-              <TableHead>
+                <TableCell align="center">Number</TableCell>
+                <TableCell align="center">Employee Code</TableCell>
+                <TableCell align="center">Username</TableCell>
+                <TableCell align="center">Role</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {users.map((user, index) => (
                 <TableRow
+                  key={user.id}
                   sx={{
-                    backgroundColor: "#f5f5f5",
-                    "& th": {
-                      fontWeight: "bold",
-                      fontSize: "16px",
-                      color: "#333",
+                    "&:nth-of-type(odd)": {
+                      backgroundColor: "#f9f9f9",
+                    },
+                    "&:hover": {
+                      backgroundColor: "#e0f7fa",
                     },
                   }}
                 >
-                  <TableCell align="center">Number</TableCell>
-                  <TableCell align="center" >Employee Code</TableCell>
-                  <TableCell align="center">Username</TableCell>
-                  <TableCell align="center">Role</TableCell>
+                  <TableCell component="th" scope="row" align="center">
+                    {index + 1}
+                  </TableCell>
+                  <TableCell align="center">{user.id}</TableCell>
+                  <TableCell align="center">{user.username}</TableCell>
+                  <TableCell align="center">{user.role}</TableCell>
                 </TableRow>
-              </TableHead>
-              <TableBody>
-                {users.map((user, index) => (
-                  <TableRow
-                    key={user.id}
-                    sx={{
-                      "&:nth-of-type(odd)": {
-                        backgroundColor: "#f9f9f9",
-                      },
-                      "&:hover": {
-                        backgroundColor: "#e0f7fa",
-                      },
-                    }}
-                  >
-                    <TableCell component="th" scope="row" align="center">
-                      {index + 1}
-                    </TableCell>
-                    <TableCell align="center">{user.id}</TableCell>
-                    <TableCell align="center">{user.username}</TableCell>
-                    <TableCell align="center">{user.role}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+              ))}
+            </TableBody>
+          </Table>
         </TableContainer>
-
       )}
       <Page />
     </div>
